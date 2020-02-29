@@ -2,103 +2,65 @@ $(document).ready(function () {
     console.log("ready!");
     //on keyup log add element to the page 
 
-    var elPGuess = document.getElementsByClassName("pGuess");
-    var elAGuess = document.getElementsByClassName("aGuess");
-    var elRGuess = document.getElementsByClassName("rGuess");
-    var elOGuess = document.getElementsByClassName("oGuess");
-    var elSGuess = document.getElementsByClassName("sGuess");
-    var elDGuess = document.getElementsByClassName("dGuess");
-    var elKGuess = document.getElementsByClassName("kGuess");
-    var elIGuess = document.getElementsByClassName("iGuess");
-    var elNGuess = document.getElementsByClassName("nGuess");
-
     var guessCount = 0;
+    var wrongGuess = "";
 
     document.onkeyup = function (detectKey) {
-        var userGuess = detectKey.key;
+        var userGuess = detectKey.key.toLowerCase();
+        var userKey = event.keyCode;
         console.log(userGuess);
 
+        if ((userKey > 64 && userKey < 91) || (userKey > 96 && userKey < 123)) {
 
-        //if else for the word itself - 
-        if (userGuess === "p") {
-            var showP = $("<span>");
-            showP.text("p");
-            $(".pGuess").append(showP);
+            //if else for the word itself - 
+            if (userGuess === "p") {
+                $(".pGuess").text("p");
 
-        } else if (userGuess === "a") {
-            var showA = $("<span>");
-            showA.text("a");
-            $(".aGuess").append(showA);
-            
-        } else if (userGuess === "r") {
-            var showR = $("<span>");
-            showR.text("r");
-            $(".rGuess").append(showR);
+            } else if (userGuess === "a") {
+                $(".aGuess").text("a");
 
-        } else if (userGuess === "o") {
-            var showO = $("<span>");
-            showO.text("o");
-            $(".oGuess").append(showO);
+            } else if (userGuess === "r") {
+                $(".rGuess").text("r");
 
-        } else if (userGuess === "s") {
-            var showS = $("<span>");
-            showS.text("s");
-            $(".sGuess").append(showS);
+            } else if (userGuess === "o") {
+                $(".oGuess").text("o");
 
-        } else if (userGuess === "d") {
-            var showD = $("<span>");
-            showD.text("d");
-            $(".dGuess").append(showD);
+            } else if (userGuess === "s") {
+                $(".sGuess").text("s");
 
-        } else if (userGuess === "k") {
-            var showK = $("<span>");
-            showK.text("k");
-            $(".kGuess").append(showK);
+            } else if (userGuess === "d") {
+                $(".dGuess").text("d");
 
-        } else if (userGuess === "i") {
-            var showI = $("<span>");
-            showI.text("i");
-            $(".iGuess").append(showI);
+            } else if (userGuess === "k") {
+                $(".kGuess").text("k");
 
-        } else if (userGuess === "n") {
-            var showN = $("<span>");
-            showN.text("n");
-            $(".nGuess").append(showN);
+            } else if (userGuess === "i") {
+                $(".iGuess").text("i");
 
-        } else if (userGuess !== "p" || userGuess !== "a" || userGuess !== "r" || userGuess !== "o" || userGuess !== "s" || userGuess !== "d" || userGuess !== "k" || userGuess !== "i" || userGuess !== "n") {
-            guessCount++;
-            console.log("guessCount = " + guessCount);
-        };
+            } else if (userGuess === "n") {
+                $(".nGuess").text("n");
 
+            } else if (userGuess !== "p" || userGuess !== "a" || userGuess !== "r" || userGuess !== "o" || userGuess !== "s" || userGuess !== "d" || userGuess !== "k" || userGuess !== "i" || userGuess !== "n") {
+                guessCount++;
+                wrongGuess += userGuess + " ";
+                console.log(wrongGuess);
+                $("#discardedLetter").text("wrongGuess: " + wrongGuess);
 
+                // $("#guessCount").text("Incorrect guesses: " + guessCount);
+                var guessesLeft = 12 - guessCount;
+                $("#guessCount").text("You have this many guesses left: " + guessesLeft);
+                console.log("This is the guess count: " + guessCount);
+                console.log("This is guesses left: " + guessesLeft);
+                if (guessesLeft === 0) {
+                    $(".wordContainer").text("Out of guesses!")
+                }
+            };
+
+        }
         //if the user guesses a letter in the the word, reveal the letters in the word
         //let's append it to the element with the class of that letter 
 
-
-
-        //get element by CLASS instead of id
-        //and then change the textcontent inside of it to the letter
-
-        //that's not okay
-
-
-
-
-
-
-
-
-
     }
-
-    //if else for the word itself - 
-
-    //if the user guesses a letter in the the word, reveal the letters in the word
-    //get element by CLASS instead of id
-    //and then change the textcontent inside of it to the letter
-
-
-    //uptick the number of guesses
     //if the user has already picked an incorrect letter, tell them they've already guessed it?
 
     // the word is "paraprosdokian"

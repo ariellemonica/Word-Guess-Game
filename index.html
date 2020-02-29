@@ -10,37 +10,52 @@
     <!--Adding in Bootstrap, for style cheats-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
         integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+    <!--My stylesheet-->
+    <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
 
 <body>
-    <h1>Press any key to get started!</h1>
+    <header>
+        <div class="instructions">
+            <h3>Guess the word!</h3>
+            <p>This is a word-guessing game. Type your letter guesses, a-z, on the keyboard and we'll let you
+                know if you're on the right track! Hint: the word is a noun. Here is an example ... </p>
+            <p>"Trin Tragula – for that was his name – was a dreamer, a thinker, a speculative philosopher or, as his
+                wife
+                would have it, an idiot…"</p>
+            <a class="btn btn-secondary btn-sm" href="index.html" role="button">Reset game</a>
+        </div>
+    </header>
 
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
-        <span class="pGuess">_</span>
-        <span class="aGuess">_</span>
-        <span class="rGuess">_</span>
-        <span class="aGuess">_</span>
-        <span class="pGuess">_</span>
-        <span class="rGuess">_</span>
-        <span class="oGuess">_</span>
-        <span class="sGuess">_</span>
-        <span class="kGuess">_</span>
-        <span class="dGuess">_</span>
-        <span class="oGuess">_</span>
-        <span class="kGuess">_</span>
-        <span class="iGuess">_</span>
-        <span class="aGuess">_</span>
-        <span class="nGuess">_</span>
-        <div id="discardedLetter"></div>
-        <div id="guessCount"></div>
-    </div>
+            <div class="wordContainer col-md-6">
+                <span class="pGuess">_</span>
+                <span class="aGuess">_</span>
+                <span class="rGuess">_</span>
+                <span class="aGuess">_</span>
+                <span class="pGuess">_</span>
+                <span class="rGuess">_</span>
+                <span class="oGuess">_</span>
+                <span class="sGuess">_</span>
+                <span class="dGuess">_</span>
+                <span class="oGuess">_</span>
+                <span class="kGuess">_</span>
+                <span class="iGuess">_</span>
+                <span class="aGuess">_</span>
+                <span class="nGuess">_</span>
+            </div>
+            <div class="wordContainer col-md-6">
+                <div id="discardedLetter">Process of elimination!</div>
+                <div id="guessCount">You have 12 guesses!</div>
+            </div>
+        </div>
     </div>
     </div>
 
+    <footer>
+    </footer>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
@@ -52,6 +67,8 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
     <script src="assets/javascript/game.js"></script>
+
+
 </body>
 
 </html>

@@ -1,0 +1,24 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    /* background-image: url("../images/books-sculpture-write-reading-34627.jpg"); */
+}
+
+.instructions {
+    margin: 20px;
+    padding: 5px;
+}
+
+.wordContainer {
+    margin: 100px; 
+    margin-left: auto;
+    margin-right: auto;
+    background: darkgray;
+    padding: 50px;
+}
+
+span {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
