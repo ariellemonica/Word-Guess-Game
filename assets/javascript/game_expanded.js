@@ -34,6 +34,7 @@ $(document).ready(function () {
     //only make button visible when the game is over - $().hide and $().show
 
     //clear out the discarded 
+    //and somewhere in here, get rid of commas
 
 
     var rightGuess = "";
