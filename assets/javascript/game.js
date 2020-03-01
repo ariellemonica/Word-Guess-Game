@@ -29,23 +29,21 @@ $(document).ready(function () {
         gameOver = false;
         $("#discardedLetter").text("Process of elimination!");
         $("#guessCount").text("You have 12 guesses!");
-        $("#result", "#hint").empty();
+        $("#result").empty();
     };
     init();
 
     function pickWord() {
         var index = Math.floor(Math.random() * gameWords.length);
-        console.log(index);
         randomWord = gameWords[index];
         hashes = [];
-        console.log(randomWord, typeof(randomWord));
 
         //this for loop is making the hashes for the letters in the word dynamically 
         for (let i = 0; i < randomWord.length; i++) {
             hashes.push("_");
             wordArray.push(randomWord[i]);
         }
-        console.log("hashes in pickWord - ", hashes, wordArray)
+        console.log("for your convenience: " + randomWord);
         $("#newWord").text(hashes.join(' '));
 
         //push hint text based on what the word is
@@ -57,7 +55,6 @@ $(document).ready(function () {
             $("#hint").text(hint3);
         } else if (randomWord === "paraprosdokian"){
             $("#hint").text(hint4);
-            console.log(hint4);
         } else if (randomWord === "schadenfreude") {
             $("#hint").text(hint5);
         } else if (randomWord === "hubris") {
@@ -67,20 +64,12 @@ $(document).ready(function () {
         }
     }
     pickWord()
-    //don't change pickword - 
-
-
 
     //re-initialize all of the other elements before calling pickword
     $("#reset").on("click", function () {
-        console.log("You pressed reset!");
         init();
         pickWord();
     })
-
-    //when reset button is pressed, call this function - call pickWord another time, and then the initializations
-    //only make button visible when the game is over - $().hide and $().show
-    //clear out the discarded 
 
     function checkWord() {
 
@@ -96,7 +85,6 @@ $(document).ready(function () {
             winsCount++
             $("#result").text("You guessed it! Play again?");
             $("#scoreWins").text("Wins: " + winsCount);
-            console.log("Wins: ", winsCount, gameOver);
         }
 
     }
@@ -105,7 +93,7 @@ $(document).ready(function () {
         var userGuess = detectKey.key.toLowerCase();
         var userKey = event.keyCode;
 
-        console.log("what is user guess: ", userGuess);
+        console.log("user typed: ", userGuess);
         if (gameOver === true){
             return;
         }
@@ -131,19 +119,15 @@ $(document).ready(function () {
             } else {
                 guessCount++;
                 wrongGuess += userGuess + ' ';
-                console.log(wrongGuess);
 
                 $("#discardedLetter").text("Discarded letters: " + wrongGuess);
 
                 var guessesLeft = 12 - guessCount;
                 $("#guessCount").text("You have this many guesses left: " + guessesLeft);
-                console.log("This is the guess count: " + guessCount);
-                console.log("This is guesses left: " + guessesLeft);
                 if (guessesLeft === 0) {
                     $("#guessCount").text("Out of guesses!")
                     lossesCount++
                     $("#scoreLosses").text("Losses: " + lossesCount);
-                    console.log("Losses: ", lossesCount);
                     gameOver = true;
                 }
             }
