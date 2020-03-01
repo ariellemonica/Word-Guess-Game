@@ -8,6 +8,13 @@ $(document).ready(function () {
     var gameWords = [
         "avuncular", "defenestrate", "widdershins", "paraprosdokian", "schadenfreude", "hubris", "quixotic"
     ];
+    var hint1 = "Hint: this word is an adjective, meaning 'of, or pertaining to, uncles'.";
+    var hint2 = "Hint: this word is a somewhat violent verb, famous for having occurred in a historical event in Prague.";
+    var hint3 = "Hint: time moves one direction. This word describes how we might move back!";
+    var hint4 = "Hint: this word is a noun. This phrase is an example, written by Douglas Adams in 'Hitchhiker's Guide to the Galaxy'. 'Trin Tragula – for that was his name – was a dreamer, a thinker, a speculative philosopher or, as his wife would have it, an idiot...'";
+    var hint5 = "Hint: what we feel when we watch other people faceplant.";
+    var hint6 = "Hint: pride goeth before the fall.";
+    var hint7 = "Hint: this word is an adjective - often used in the context of dreamers and sometimes in the context of windmills.";
     var hashes = [];
     var winsCount = 0;
     var lossesCount = 0; 
@@ -22,16 +29,16 @@ $(document).ready(function () {
         gameOver = false;
         $("#discardedLetter").text("Process of elimination!");
         $("#guessCount").text("You have 12 guesses!");
-        $("#result").empty();
-        console.log("game over state: " + gameOver);
+        $("#result", "#hint").empty();
     };
     init();
 
     function pickWord() {
         var index = Math.floor(Math.random() * gameWords.length);
+        console.log(index);
         randomWord = gameWords[index];
         hashes = [];
-        console.log("random word picked out of the random word array: ", randomWord);
+        console.log(randomWord, typeof(randomWord));
 
         //this for loop is making the hashes for the letters in the word dynamically 
         for (let i = 0; i < randomWord.length; i++) {
@@ -41,6 +48,23 @@ $(document).ready(function () {
         console.log("hashes in pickWord - ", hashes, wordArray)
         $("#newWord").text(hashes.join(' '));
 
+        //push hint text based on what the word is
+        if (randomWord === "avuncular") {
+            $("#hint").text(hint1);
+        } else if (randomWord === "defenestrate") {
+            $("#hint").text(hint2);
+        } else if (randomWord === "widdershins") {
+            $("#hint").text(hint3);
+        } else if (randomWord === "paraprosdokian"){
+            $("#hint").text(hint4);
+            console.log(hint4);
+        } else if (randomWord === "schadenfreude") {
+            $("#hint").text(hint5);
+        } else if (randomWord === "hubris") {
+            $("#hint").text(hint6);
+        } else if (randomWord === "quixotic") {
+            $("#hint").text(hint7);
+        }
     }
     pickWord()
     //don't change pickword - 
