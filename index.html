@@ -20,31 +20,19 @@
         <div class="instructions">
             <h3>Guess the word!</h3>
             <p>This is a word-guessing game. Type your letter guesses, a-z, on the keyboard and we'll let you
-                know if you're on the right track! Hint: the word is a noun. Here is an example ... </p>
-            <p>"Trin Tragula – for that was his name – was a dreamer, a thinker, a speculative philosopher or, as his
+                know if you're on the right track!</p>
+            <!-- <p id="hintParaprosdokian">"Trin Tragula – for that was his name – was a dreamer, a thinker, a speculative philosopher or, as his
                 wife
-                would have it, an idiot…"</p>
-            <a class="btn btn-secondary btn-sm" href="index.html" role="button">Reset game</a>
+                would have it, an idiot…"</p> -->
+            <div id="result"></div>
+            <a id="reset" class="btn btn-secondary btn-sm" role="button">Reset game</a>
         </div>
     </header>
 
     <div class="container">
         <div class="row">
             <div class="wordContainer col-md-6">
-                <span class="pGuess">_</span>
-                <span class="aGuess">_</span>
-                <span class="rGuess">_</span>
-                <span class="aGuess">_</span>
-                <span class="pGuess">_</span>
-                <span class="rGuess">_</span>
-                <span class="oGuess">_</span>
-                <span class="sGuess">_</span>
-                <span class="dGuess">_</span>
-                <span class="oGuess">_</span>
-                <span class="kGuess">_</span>
-                <span class="iGuess">_</span>
-                <span class="aGuess">_</span>
-                <span class="nGuess">_</span>
+                <div id="newWord"></div>
             </div>
             <div class="wordContainer col-md-6">
                 <div id="discardedLetter">Process of elimination!</div>
@@ -52,6 +40,19 @@
             </div>
         </div>
     </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="resultContainer col-md-6">
+                <div id="scoreWins"></div>
+            </div>
+            <div class="resultContainer col-md-6">
+                <div id="scoreLosses"></div>
+            </div>
+
+        </div>
+
     </div>
 
     <footer>
